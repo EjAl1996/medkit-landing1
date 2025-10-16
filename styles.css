@@ -1,0 +1,25 @@
+:root{
+  --maxw: 980px;
+  --accent: #1f7a4a;
+  --accent-2: #154c36;
+  --muted: #6b6b6b;
+}
+*{box-sizing:border-box}
+body{font-family:system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;line-height:1.5;color:#111;margin:0}
+.container{max-width:var(--maxw);margin:0 auto;padding:24px}
+.hero{background:linear-gradient(180deg, #f7fbf7 0%, #fff 100%);padding:48px 0;text-align:center}
+h1{font-size:28px;margin:0 0 8px}
+.sub{color:var(--muted);margin:0 0 16px}
+.btn{display:inline-block;padding:12px 20px;border-radius:10px;text-decoration:none;font-weight:600}
+.primary{background:var(--accent);color:white}
+.big{padding:16px 26px;font-size:18px}
+.disclosure{font-size:12px;color:#666;margin-top:12px}
+.hero-image{width:100%;max-width:420px;border-radius:8px;margin-top:16px}
+.story, .benefits, .proof, .final-cta{padding:28px 0;border-bottom:1px solid #eee}
+.benefits ul{list-style:disc;padding-left:20px;color:#222}
+blockquote{background:#f2f6f2;padding:12px 16px;border-left:4px solid var(--accent-2);margin:12px 0}
+.small{font-size:13px;color:#666}
+@media (min-width:900px){
+  h1{font-size:36px}
+  .container{padding:40px}
+}
