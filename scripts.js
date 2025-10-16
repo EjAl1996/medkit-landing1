@@ -1,31 +1,16 @@
-// small interaction script: carousel, FAQ toggle, year + GA click
-document.getElementById('year').textContent = new Date().getFullYear();
+// interactions: year, FAQ accordion, basic GA CTA tracking
+try{document.getElementById('year').textContent = new Date().getFullYear();}catch(e){}
 
-// CTA click tracking (GA)
-function sendGAEvent(action, label){
+function sendGA(action, label){
   if(typeof gtag === 'function'){
     gtag('event', action, { event_category: 'engagement', event_label: label });
   }
 }
-['cta-hero','cta-mid','cta-card','cta-bottom'].forEach(id=>{
+['top-cta','cta-top-hero','cta-hero-card','final-cta-btn'].forEach(id=>{
   const el = document.getElementById(id);
-  if(el) el.addEventListener('click', ()=> sendGAEvent('click_cta', id));
+  if(el) el.addEventListener('click', ()=> sendGA('click_cta', id));
 });
 
-// Testimonial carousel (auto rotate)
-(function(){
-  const slides = Array.from(document.querySelectorAll('.carousel .slide'));
-  let idx = slides.findIndex(s=> s.classList.contains('active'));
-  if(idx < 0) idx = 0;
-  function rotate(){
-    slides[idx].classList.remove('active');
-    idx = (idx + 1) % slides.length;
-    slides[idx].classList.add('active');
-  }
-  setInterval(rotate, 4200);
-})();
-
-// FAQ accordion
 document.querySelectorAll('.faq-item .q').forEach(q=>{
   q.addEventListener('click', function(){
     const a = this.nextElementSibling;
